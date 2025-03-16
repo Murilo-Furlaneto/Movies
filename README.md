@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # movies
 
 A new Flutter project.
