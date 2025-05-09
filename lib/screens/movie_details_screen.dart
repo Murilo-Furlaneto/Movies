@@ -72,7 +72,8 @@ class MovieDetailsScreen extends StatelessWidget {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Text("${movieModel.voteAverage}/10"),
+                                  Text(
+                                      "${movieModel.voteAverage.toStringAsFixed(1)}/10"),
                                   const Spacer(),
                                   Text(
                                     movieModel.releaseDate,
@@ -83,9 +84,9 @@ class MovieDetailsScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 10,
                               ),
-                              const GenreListWidget(
-                                  //movieModel: movieModel,
-                                  ),
+                              GenreListWidget(
+                                movieModel: movieModel,
+                              ),
                               const SizedBox(
                                 height: 15,
                               ),
@@ -108,11 +109,11 @@ class MovieDetailsScreen extends StatelessWidget {
                           color: Theme.of(context).cardColor,
                           shape: BoxShape.circle,
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(6.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
                           child: FavoriteButton(
-                              //movieModel:movieModel,
-                              ),
+                            movieModel: movieModel,
+                          ),
                         ),
                       ),
                     ),

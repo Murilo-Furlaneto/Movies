@@ -39,9 +39,13 @@ class MoviesWidget extends StatelessWidget {
                     tag: movieModel.id,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12.0),
-                      child: CachedImageWidget(
-                          imgUrl:
-                              "https://image.tmdb.org/t/p/w500/${movieModel.backdropPath}"),
+                      child: SizedBox(
+                        height: 130,
+                        width: 95,
+                        child: CachedImageWidget(
+                            imgUrl:
+                                "https://image.tmdb.org/t/p/w500/${movieModel.backdropPath}"),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -69,13 +73,16 @@ class MoviesWidget extends StatelessWidget {
                           const SizedBox(
                             width: 5,
                           ),
-                          Text("${movieModel.voteAverage}/10"),
+                          Text(
+                              "${movieModel.voteAverage.toStringAsFixed(1)}/10"),
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const GenreListWidget(),
+                      GenreListWidget(
+                        movieModel: movieModel,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         mainAxisSize: MainAxisSize.max,
@@ -93,7 +100,9 @@ class MoviesWidget extends StatelessWidget {
                             style: const TextStyle(color: Colors.grey),
                           ),
                           const Spacer(),
-                          const FavoriteButton(),
+                          FavoriteButton(
+                            movieModel: movieModel,
+                          ),
                         ],
                       )
                     ],

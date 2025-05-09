@@ -9,7 +9,7 @@ import 'package:movies/service/navigation/navigation_service.dart';
 void main() async {
   setUpLocator();
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
+  await dotenv.load(fileName: "assets/.env");
   runApp(const MyApp());
 }
 

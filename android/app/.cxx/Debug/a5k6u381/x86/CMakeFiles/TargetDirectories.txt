@@ -1,0 +1,2 @@
+C:/Users/furla/OneDrive/Documentos/Projetos Flutter/Movies/android/app/.cxx/Debug/a5k6u381/x86/CMakeFiles/edit_cache.dir
+C:/Users/furla/OneDrive/Documentos/Projetos Flutter/Movies/android/app/.cxx/Debug/a5k6u381/x86/CMakeFiles/rebuild_cache.dir

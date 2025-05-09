@@ -7,7 +7,7 @@ import 'package:movies/constants/my_app_icons.dart';
 import 'package:movies/model/movies_model.dart';
 import 'package:movies/repository/movies_repository.dart';
 import 'package:movies/screens/favorite_screen.dart';
-import 'package:movies/service/api_service.dart';
+import 'package:movies/service/api/api_service.dart';
 import 'package:movies/service/getIt/init_getit.dart';
 import 'package:movies/service/navigation/navigation_service.dart';
 import 'package:movies/widgets/image/cached_image_widget.dart';
