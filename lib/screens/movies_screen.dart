@@ -10,8 +10,10 @@ import 'package:movies/screens/favorite_screen.dart';
 import 'package:movies/service/api/api_service.dart';
 import 'package:movies/service/getIt/init_getit.dart';
 import 'package:movies/service/navigation/navigation_service.dart';
+import 'package:movies/view_models/theme_provider.dart';
 import 'package:movies/widgets/image/cached_image_widget.dart';
 import 'package:movies/widgets/movies/movies_widget.dart';
+import 'package:provider/provider.dart';
 
 class MoviesScreen extends StatefulWidget {
   const MoviesScreen({super.key});
@@ -74,6 +76,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Popular Movies'),
@@ -88,6 +91,7 @@ class _MoviesScreenState extends State<MoviesScreen> {
               )),
           IconButton(
             onPressed: () async {
+              themeProvider.toggleTheme();
               /*   final List<MovieModel> movies =
                   await getIt<MoviesRepository>().fetchMovies();
               log("Movies screens - movies: $movies"); */

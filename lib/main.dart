@@ -5,6 +5,8 @@ import 'package:movies/screens/movies_screen.dart';
 import 'package:movies/screens/splash_screen.dart';
 import 'package:movies/service/getIt/init_getit.dart';
 import 'package:movies/service/navigation/navigation_service.dart';
+import 'package:movies/view_models/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   setUpLocator();
@@ -18,12 +20,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: getIt<NavigationService>().navigatorKey,
-      debugShowCheckedModeBanner: false,
-      title: 'Movies App',
-      theme: MyThemeData.ligthTheme,
-      home: const SplashScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (_) => ThemeProvider(),
+        ),
+      ],
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            navigatorKey: getIt<NavigationService>().navigatorKey,
+            debugShowCheckedModeBanner: false,
+            title: 'Movies App',
+            theme: themeProvider.themeData,
+            home: const SplashScreen(),
+          );
+        },
+      ),
     );
   }
 }
